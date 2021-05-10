@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === "production" ? "/bs5-try/" : "/",
+    publicPath: '/bs5-try',
 };
