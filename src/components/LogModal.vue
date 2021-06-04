@@ -21,45 +21,49 @@
                     ></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label
-                            :for="`form-account-${compName}`"
-                            class="form-label"
+                    <form>
+                        <div class="mb-3">
+                            <label
+                                :for="`form-account-${compName}`"
+                                class="form-label"
+                            >
+                                帳號
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                :autocomplete="accountAutocomplete"
+                                :id="`form-account-${compName}`"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label
+                                :for="`form-password-${compName}`"
+                                class="form-label"
+                            >
+                                密碼
+                            </label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                :autocomplete="passwordAutocomplete"
+                                :id="`form-password-${compName}`"
+                            />
+                        </div>
+                        <a
+                            v-if="isLogin"
+                            href="#"
+                            class="d-inline-block text-muted text-decoration-none me-auto mb-3"
                         >
-                            帳號
-                        </label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            :id="`form-account-${compName}`"
-                        />
-                    </div>
-                    <div class="mb-3">
-                        <label
-                            :for="`form-password-${compName}`"
-                            class="form-label"
+                            忘記密碼
+                        </a>
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-lg rounded-pill py-2 w-100"
                         >
-                            密碼
-                        </label>
-                        <input
-                            type="password"
-                            class="form-control"
-                            :id="`form-password-${compName}`"
-                        />
-                    </div>
-                    <a
-                        v-if="isLogin"
-                        href="#"
-                        class="d-inline-block text-muted text-decoration-none me-auto mb-3"
-                    >
-                        忘記密碼
-                    </a>
-                    <button
-                        type="button"
-                        class="btn btn-primary btn-lg rounded-pill py-2 w-100"
-                    >
-                        {{ triggerBtnText }}
-                    </button>
+                            {{ triggerBtnText }}
+                        </button>
+                    </form>
                 </div>
                 <div v-if="isLogin" class="modal-footer flex-column">
                     <p class="title-side-border-gray w-100">
@@ -100,6 +104,12 @@ export default {
         },
         isRegister() {
             return this.action === "register";
+        },
+        accountAutocomplete() {
+            return `username`;
+        },
+        passwordAutocomplete() {
+            return this.isLogin ? `current-password` : `new-password`;
         },
     },
 };
