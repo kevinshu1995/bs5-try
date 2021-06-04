@@ -8,4 +8,8 @@ module.exports = {
             title: "拼拼 | bootstrap 5 X Vue.js",
         },
     },
+    productionSourceMap: false,
+    css: {
+        sourceMap: true,
+    },
 };
