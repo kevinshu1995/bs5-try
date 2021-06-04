@@ -1,0 +1,51 @@
+@import "./components";
+@import "./utilities";
+
+.product-main-title {
+    @include font-size(2rem);
+}
+
+.index-programs {
+    top: 9rem;
+    z-index: 1005;
+}
+.index-product-nav {
+    top: 4.3rem;
+    z-index: 1010;
+}
+
+// * Page - product
+.product {
+    .tabContent {
+        .scroll-nav {
+            overflow-y: hidden;
+            height: 4rem;
+            @include media-breakpoint-down(lg) {
+                height: 3rem;
+            }
+            .nav {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                height: 100%;
+                white-space: nowrap;
+            }
+            .nav-item,
+            .nav-link {
+                height: 100%;
+            }
+            .nav-link {
+                display: flex;
+                align-items: center;
+            }
+        }
+        .nav-item {
+            @include media-breakpoint-down(lg) {
+                font-size: 14px;
+            }
+        }
+        .router-link-exact-active {
+            border-bottom: 2px solid $primary;
+        }
+    }
+}

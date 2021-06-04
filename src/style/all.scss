@@ -1,2 +1,22 @@
 @import "./all/variables";
-@import "bootstrap/scss/bootstrap";
+
+// * Bootstrap - Configuration
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+@import "./all/after_configuration";
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// * Bootstrap - Layout & Components
+@import "./plugins/bootstrap/layout_components";
+
+// * Bootstrap - Helpers
+@import "./plugins/bootstrap/helpers";
+
+// * Bootstrap - Utilities
+@import "./plugins/bootstrap/utilities";
+
+// * Custom
+@import "./all/customs/custom";

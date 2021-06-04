@@ -1,0 +1,11 @@
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$utilities: (
+    "font-family": (
+        property: font-family,
+        class: font,
+        values: (
+            baloo-tamma-2: var(--#{$variable-prefix}font-family-baloo-tamma-2),
+        ),
+    ),
+);

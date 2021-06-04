@@ -1,5 +1,71 @@
-$primary: #0d6efd;
+$variable-prefix: bs-;
+
+$support: #ff785e;
+$content: #494846;
+$primary: #ffdf65;
+$primary-hover: $support;
+$secondary: #858377;
+$gray: #e8e8db;
 $black: #000;
+
+$custom-colors: (
+    "support": $support,
+    "content": $content,
+    "gray": $gray,
+);
+
+$body-color: $content;
+$link-color: $support;
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer / 4,
+    2: $spacer / 2,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 2,
+    7: $spacer * 2.5,
+    8: $spacer * 3,
+    9: $spacer * 3.5,
+    10: $spacer * 4,
+    11: $spacer * 4.5,
+    12: $spacer * 5,
+);
+
+$enable-negative-margins: true;
+
+$font-family-noto-sans: "Noto Sans TC", sans-serif;
+$font-family-baloo-tamma-2: "Baloo Tamma 2", cursive;
+
+$font-family-base: var(--#{$variable-prefix}font-family-noto-sans);
+$font-family-code: var(--#{$variable-prefix}font-family-noto-sans);
+$font-weight-bold: 700;
+
+$btn-border-radius: 100rem;
+$btn-font-weight: $font-weight-bold;
+$btn-close-opacity: 0.2;
+
+$badge-padding-x: 1.33em;
 
 $navbar-light-hover-color: darken($primary, 10%);
 $navbar-light-active-color: rgba($primary, 0.7);
+
+$nav-link-color: $content;
+$nav-link-hover-color: lighten($content, 10%);
+
+$modal-footer-border-color: transparent;
+
+$input-bg: #f7f7f7;
+$input-border-color: transparent;
+
+$card-border-radius: 0.5rem;
+
+:root {
+    --#{$variable-prefix}font-family-noto-sans: #{inspect(
+            $font-family-noto-sans
+        )};
+    --#{$variable-prefix}font-family-baloo-tamma-2: #{inspect(
+            $font-family-baloo-tamma-2
+        )};
+}

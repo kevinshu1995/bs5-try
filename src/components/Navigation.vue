@@ -1,95 +1,116 @@
 <template>
-    <div>
-        <button
-            class="fixed-bottom btn btn-light rounded-pill ms-auto me-3 mb-3"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                class="bi bi-list"
-                viewBox="0 0 16 16"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+    <nav
+        class="navbar navbar-expand-lg sticky-top navbar-light bg-white border-bottom border-primary border-5"
+    >
+        <div class="container-fluid">
+            <router-link class="navbar-brand" :to="{ path: '/product' }">
+                <img
+                    style="max-height:40px;"
+                    :src="`${publicPath}/images/logo.jpg`"
+                    alt=""
                 />
-            </svg>
-        </button>
-
-        <div
-            class="offcanvas offcanvas-end sidebar-innerLinks-hoverStyle"
-            tabindex="-1"
-            id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel"
-        >
-            <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel" class="mb-0 mt-1 py-0">
-                    <router-link
-                        class="d-inline-block text-decoration-none text-dark fw-bold w-100 h-100 py-2"
-                        to="/"
-                    >
-                        Kevin Hsu
-                    </router-link>
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close text-reset"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                ></button>
-            </div>
-            <div class="offcanvas-body">
-                <nav class="navbar-light bg-white">
-                    <nav class="navbar-nav">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <router-link
-                                    class="nav-link"
-                                    :to="{ path: 'about' }"
-                                >
-                                    關於 About
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link
-                                    class="nav-link"
-                                    :to="{ name: 'Day1' }"
-                                >
-                                    Day 1
-                                </router-link>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <router-link
-                                    class="nav-link"
-                                    :to="{ name: 'Day2' }"
-                                >
-                                    Day 2
-                                </router-link>
-                            </li> -->
-                        </ul>
-                    </nav>
-                </nav>
+            </router-link>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul
+                    class="navbar-nav navigation-nav-links-spacing me-auto mb-2 mb-lg-0"
+                >
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ path: '/blank' }"
+                            >關於</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ path: '/blank' }"
+                            >挖寶</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ path: '/blank' }"
+                            >我有個大膽的想法</router-link
+                        >
+                    </li>
+                </ul>
+                <div class="d-flex ms-8 ms-lg-0">
+                    <LogButton
+                        :btnClass="[
+                            'btn',
+                            'btn-primary',
+                            'flex-grow-1',
+                            'me-3',
+                            'px-5',
+                        ]"
+                        :triggerBtnText="triggerBtnText('login')"
+                        compName="login"
+                    />
+                    <LogButton
+                        :btnClass="[
+                            'btn',
+                            'btn-outline-secondary',
+                            'flex-grow-1',
+                            'px-5',
+                        ]"
+                        :triggerBtnText="triggerBtnText('register')"
+                        compName="register"
+                    />
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
+    <!-- Modals needs to be wrap directly in root element (#app) -->
+    <LogModal
+        compName="login"
+        :triggerBtnText="triggerBtnText('login')"
+        action="login"
+    />
+    <LogModal
+        compName="register"
+        :triggerBtnText="triggerBtnText('register')"
+        action="register"
+    />
 </template>
 
 <script>
-import "@/style/all.scss";
+import LogButton from "./LogButton";
+import LogModal from "./LogModal";
 export default {
-    name: "Navigation",
+    components: {
+        LogButton,
+        LogModal,
+    },
     setup() {},
+    data() {
+        return {
+            publicPath: process.env.BASE_URL,
+        };
+    },
+    methods: {
+        triggerBtnText(action) {
+            switch (action) {
+                case "login":
+                    return "登入";
+                case "register":
+                    return "註冊";
+                default:
+                    return "binded action error";
+            }
+        },
+    },
 };
 </script>
 
-<style scoped>
-.sidebar-innerLinks-hoverStyle a:hover {
-    color: #0d6efd;
+<style lang="scss" scoped>
+.navigation-nav-links-spacing .nav-item {
+    margin-left: 3rem;
 }
 </style>

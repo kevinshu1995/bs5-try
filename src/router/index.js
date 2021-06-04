@@ -32,6 +32,45 @@ const routes = [
         ],
     },
     {
+        path: "/product",
+        component: () =>
+            import(/* webpackChunkName: "product" */ "../views/Product.vue"),
+        children: [
+            {
+                path: "",
+                name: "Intro",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "intro" */ "../views/product/Intro.vue"
+                    ),
+            },
+            {
+                path: "question",
+                name: "Question",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "question" */ "../views/product/Question.vue"
+                    ),
+            },
+            {
+                path: "process",
+                name: "Process",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "process" */ "../views/product/Process.vue"
+                    ),
+            },
+            {
+                path: "comment",
+                name: "Comment",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "comment" */ "../views/product/Comment.vue"
+                    ),
+            },
+        ],
+    },
+    {
         path: "/blank",
         name: "Blank",
         // route level code-splitting
@@ -42,7 +81,7 @@ const routes = [
     },
     {
         path: "/:pathMatch(.*)",
-        redirect: "/Blank",
+        redirect: "/product",
     },
 ];
 

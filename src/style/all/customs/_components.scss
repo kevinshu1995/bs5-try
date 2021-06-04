@@ -1,0 +1,57 @@
+// * button
+.btn-primary {
+    &,
+    &:active,
+    &:focus {
+        color: #636057;
+    }
+    &:hover {
+        background-color: $primary-hover;
+        border-color: $primary-hover;
+        color: $white;
+    }
+}
+.btn-secondary:hover,
+.btn-outline-secondary:hover {
+    color: $white;
+}
+.btn-outline-secondary {
+    &:active {
+        color: $white;
+    }
+}
+
+.modal-content {
+    border-color: transparent;
+    border-top: 4px solid $primary;
+}
+.modal-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.modal-footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.title-side-border-primary,
+.title-side-border-gray {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    &::before,
+    &::after {
+        content: "";
+        height: 3px;
+        width: 100%;
+        flex-grow: 1;
+        background-color: $primary;
+    }
+}
+.title-side-border-gray {
+    &::before,
+    &::after {
+        height: 1px;
+        background-color: $gray;
+    }
+}

@@ -3,13 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import "@popperjs/core";
-import "bootstrap";
-
-// const isDebug_mode = process.env.NODE_ENV !== "production";
-
-// Vue.config.debug = isDebug_mode;
-// Vue.config.devtools = isDebug_mode;
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./style/all.scss";
 
 createApp(App)
     .use(store)
