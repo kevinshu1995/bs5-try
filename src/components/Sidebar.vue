@@ -51,7 +51,7 @@
                         本站目前是拿來測試與學習 Bootstrap
                         5，所有的功能都是假的，不用擔心 :)
                     </p>
-                    <p>本站的設計稿為</p>
+                    <p>本站的設計稿為六角學院提供，僅做為 BS5 切版練習。</p>
                 </div>
                 <h6 class="fw-bold">其他網頁作品</h6>
                 <nav class="navbar-light bg-white">
