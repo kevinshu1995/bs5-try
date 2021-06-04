@@ -195,6 +195,7 @@
 </template>
 
 <script>
+import { Tooltip } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import Number from "@/components/Number";
 import Note from "@/components/Note";
 export default {
@@ -229,6 +230,12 @@ export default {
                 percent: `${num * 100}%`,
             };
         },
+    },
+    mounted() {
+        //inti tooltip
+        Array.from(
+            document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        ).forEach(tooltipNode => new Tooltip(tooltipNode));
     },
     methods: {
         clamp(value, min, max) {

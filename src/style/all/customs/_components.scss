@@ -15,9 +15,12 @@
 .btn-outline-secondary:hover {
     color: $white;
 }
-.btn-outline-secondary {
-    &:active {
-        color: $white;
+.btn-outline-secondary:hover {
+    background-color: $primary;
+    border-color: $primary;
+    color: $secondary;
+    i {
+        color: $support;
     }
 }
 
